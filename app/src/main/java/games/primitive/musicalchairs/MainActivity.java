@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
 	public Handler pauseHandler = new Handler();
 	public void playMusic(View view) {
+		Toast.makeText(this, "V2", Toast.LENGTH_SHORT);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		if (customMusic != null) {
 			music = customMusic;
