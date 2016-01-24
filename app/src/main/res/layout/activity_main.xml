@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="games.primitive.musicalchairs.MainActivity"
+    android:padding="0dp">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/songBox">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="85dp">
+
+            <!-- PLAYER -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Players"
+                android:id="@+id/textPlayers"
+                android:textColor="#212121"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of starting players for the game."
+                android:id="@+id/textPlayersDescription"
+                android:layout_below="@+id/textPlayers"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="16sp"
+                android:textColor="#212121"/>
+
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarPlayers"
+                android:layout_below="@+id/textPlayersDescription"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:max="23"
+                android:progress="3"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:thumbTint="#7B1FA2"
+                android:progressTint="#9C27B0"
+                android:progressBackgroundTint="#9C27B0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textPlayersNumber"
+                android:layout_alignTop="@+id/seekBarPlayers"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:text="5"
+                android:textSize="20sp"
+                android:textColor="#212121"/>
+
+            <!-- CHAIRS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of chairs"
+                android:id="@+id/textChairs"
+                android:layout_below="@+id/seekBarPlayers"
+                android:textColor="#727272"
+                android:textSize="20sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:id="@+id/textChairsNumber"
+                android:textColor="#727272"
+                android:textSize="20sp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/textChairs"/>
+
+            <!-- divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e0e0e0"
+                android:layout_below="@+id/textChairs"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/divider1"/>
+
+            <!-- AUTO-PAUSE -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider1"
+                android:id="@+id/textAutoPause"
+                android:text="Auto-pause"
+                android:textColor="#212121"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textAutoPause"
+                android:id="@+id/textAutoPauseDescription"
+                android:text="Pauses the music automatically."
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="16sp"
+                android:textColor="#212121"/>
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switchAutoPause"
+                android:checked="true"
+                android:thumbTint="#7B1FA2"
+                android:trackTint="#9C27B0"
+                android:layout_below="@+id/divider1"
+                android:layout_alignRight="@+id/divider1"
+                android:layout_alignEnd="@+id/divider1"/>
+
+            <!-- AVERAGE ROUND DURATION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textAutoPauseDescription"
+                android:id="@+id/textAverageRoundDuration"
+                android:text="Average round duration"
+                android:layout_marginTop="15dp"
+                android:textColor="#212121"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textAverageRoundDuration"
+                android:id="@+id/textAverageRoundDurationDescription"
+                android:text="Average time before the music stops."
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="16sp"
+                android:textColor="#212121"/>
+
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textAverageRoundDurationDescription"
+                android:id="@+id/seekBarAverageRoundDuration"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:max="25"
+                android:progress="10"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:thumbTint="#7B1FA2"
+                android:progressTint="#9C27B0"
+                android:progressBackgroundTint="#9C27B0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 s"
+                android:id="@+id/textAverageRoundDurationNumber"
+                android:layout_alignTop="@+id/seekBarAverageRoundDuration"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textSize="16sp"
+                android:textColor="#212121"/>
+
+            <!-- PAUSE DURATION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seekBarAverageRoundDuration"
+                android:id="@+id/textPauseDuration"
+                android:text="Pause duration"
+                android:layout_marginTop="10dp"
+                android:textColor="#212121"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textPauseDuration"
+                android:id="@+id/textPauseDurationDescription"
+                android:text="Duration of music pause between rounds."
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="16sp"
+                android:textColor="#212121"/>
+
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textPauseDurationDescription"
+                android:id="@+id/seekBarPauseDuration"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:max="17"
+                android:progress="7"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:thumbTint="#7B1FA2"
+                android:progressTint="#9C27B0"
+                android:progressBackgroundTint="#9C27B0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 s"
+                android:id="@+id/textPauseDurationNumber"
+                android:layout_alignTop="@+id/seekBarPauseDuration"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textSize="16sp"
+                android:textColor="#212121"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seekBarPauseDuration"
+                android:id="@+id/debugging"
+                android:text="DEBUGGING"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:textSize="10sp"
+                android:textColor="#212121"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <!-- SONG BOX -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="20dp"
+        android:id="@+id/songBox"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp">
+
+        <!-- SONG DETAILS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textSongName"
+            android:text="Meatball Parade"
+            android:textSize="20sp"
+            android:textColor="#FFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textSongName"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textArtistName"
+            android:text="Kevin MacLeod"
+            android:fontFamily="sans-serif-light"
+            android:textSize="16sp"
+            android:textColor="#FFF"/>
+
+        <!-- OPEN SONG BUTTON -->
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/imageButtonOpenSong"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:padding="0dp"
+            android:src="@drawable/folder"
+            android:backgroundTint="@color/colorPrimary"
+            android:background="@null"
+            android:onClick="openFile"/>
+    </RelativeLayout>
+
+    <!-- PLAY BUTTON -->
+    <ImageButton
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:elevation="10dp"
+        android:id="@+id/imageButtonPlay"
+        android:background="@drawable/oval"
+        android:src="@drawable/play"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_above="@+id/songBox"
+        android:layout_marginBottom="-28dp"
+        android:onClick="playMusic"/>
+
+    <!-- PAUSE BUTTON -->
+    <ImageButton
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:elevation="10dp"
+        android:id="@+id/imageButtonPause"
+        android:background="@drawable/oval"
+        android:src="@drawable/pause"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_above="@+id/songBox"
+        android:layout_marginBottom="-28dp"
+        android:onClick="pauseMusic"
+        android:visibility="gone"/>
+
+    <!-- STOP BUTTON -->
+    <ImageButton
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:elevation="10dp"
+        android:id="@+id/imageButtonStop"
+        android:background="@drawable/oval"
+        android:src="@drawable/stop"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_above="@+id/songBox"
+        android:layout_marginBottom="-28dp"
+        android:onClick="stopMusic"
+        android:visibility="gone"/>
+
+    <!-- COUNTDOWN SCREEN -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="20dp"
+        android:background="#000"
+        android:alpha=".7"
+        android:id="@+id/countdownBackground"
+        android:visibility="gone"
+        android:clickable="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_above="@+id/textPauseCountdown"
+            android:id="@+id/textPauseCountdownDescription"
+            android:text="NEXT ROUND IN"
+            android:textSize="25sp"
+            android:textColor="#FFF"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/textPauseCountdown"
+            android:text="5"
+            android:textSize="200sp"
+            android:layout_marginTop="-25dp"
+            android:textColor="#FFF"/>
+    </RelativeLayout>
+
+</RelativeLayout>
