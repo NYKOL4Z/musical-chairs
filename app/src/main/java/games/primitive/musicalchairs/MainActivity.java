@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void stopMusic(View view) {
-		music.seekTo(0);
+		resetGame();
 		music.pause();
 		buttonPause.setVisibility(View.GONE);
 		buttonStop.setVisibility(View.GONE);
