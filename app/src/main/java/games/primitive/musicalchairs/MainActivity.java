@@ -41,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
 	public RelativeLayout countdownBackground;
 	public TextView textDebugging;
 	public SeekBar seekBarPlayers;
+	public ImageButton buttonOpenSong;
 	public TextView textSongName;
 	public TextView textArtistName;
+	public RelativeLayout pickSongDialog;
 
 	public MediaPlayer customMusic = null;
 	public MediaPlayer music;
@@ -131,20 +133,20 @@ public class MainActivity extends AppCompatActivity {
 		buttonStop = (ImageButton) findViewById(R.id.imageButtonStop);
 		countdownBackground = (RelativeLayout) findViewById(R.id.countdownBackground);
 		textPauseCountdown = (TextView) findViewById(R.id.textPauseCountdown);
+		buttonOpenSong = (ImageButton) findViewById(R.id.imageButtonOpenSong);
 		textSongName = (TextView) findViewById(R.id.textSongName);
 		textArtistName = (TextView) findViewById(R.id.textArtistName);
+		pickSongDialog = (RelativeLayout) findViewById(R.id.layoutPickSongBackground);
 
 		textDebugging = (TextView) findViewById(R.id.debugging);
 
 		music = MediaPlayer.create(this, R.raw.meatballparade);
-		music.setLooping(true);
 		winningMusic = MediaPlayer.create(this, R.raw.lopingsting);
 		tic = MediaPlayer.create(this, R.raw.tic);
 	}
 
 	public Handler pauseHandler = new Handler();
 	public void playMusic(View view) {
-		Toast.makeText(this, "V2", Toast.LENGTH_SHORT).show();
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		if (customMusic != null) {
 			music = customMusic;
@@ -153,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
 		music.start();
 		buttonPlay.setVisibility(View.GONE);
 		buttonStop.setVisibility(View.VISIBLE);
+		buttonOpenSong.setVisibility(View.GONE);
 		int min = averageRoundDurationNumber * 500;
 		int max = averageRoundDurationNumber * 1500;
 		Random random = new Random();
@@ -228,14 +231,15 @@ public class MainActivity extends AppCompatActivity {
 
 	public void resetGame() {
 		//TODO reset game sliders
+		buttonOpenSong.setVisibility(View.VISIBLE);
 		music.seekTo(0);
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	}
 
 	public void openFile(View view) {
-		Toast.makeText(this, "Pressed...", Toast.LENGTH_SHORT).show();
 		Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
-		startActivityForResult(galleryIntent , 0);
+		startActivityForResult(galleryIntent, 0);
+		hidePickSongDialog(view);
 	}
 
 	@Override
@@ -268,5 +272,23 @@ public class MainActivity extends AppCompatActivity {
 		song = cursor.getString(songColumnIndex);
 		artist = cursor.getString(artistColumnIndex);
 		return cursor.getString(uriColumnIndex);
+	}
+
+	public void setDefaultSong1(View view) {
+		music = MediaPlayer.create(this, R.raw.meatballparade);
+		song = "Meatball Parade";
+		artist = "Kevin MacLeod";
+		textSongName.setText(song);
+		textArtistName.setText(artist);
+		customMusic = null;
+		hidePickSongDialog(view);
+	}
+
+	public void showPickSongDialog(View view) {
+		pickSongDialog.setVisibility(View.VISIBLE);
+	}
+
+	public void hidePickSongDialog(View view) {
+		pickSongDialog.setVisibility(View.GONE);
 	}
 }
